@@ -35,3 +35,47 @@ app.get("/", function (req, res) {
 	res.sendFile(__dirname+"/index.html")
 });
 
+//try to log into ms sql
+app.post("/login", function (req, res) {
+	config = {
+		user: req.body.username,
+		password: req.body.password,
+		server: 'localhost',
+		database: 'qlHD',
+		port: 1433,
+		options: {
+			trustServerCertificate: true // change to true for local dev / self-signed certs
+		}
+	}
+	var promise_connect=new Promise(function(resolve,reject){
+		try{resolve(pool = new sql.connect(config))}
+		catch{reject('error')}
+	})
+	promise_connect
+	.then(function(data){ 
+		// console.log(data);
+		res.send('0');
+	})
+	.catch(function(data){
+		// console.log(data); 
+		res.send(data)
+	})
+});
+
+//log out from mssql
+app.get("/logout",function(req,res){
+	config = {
+		user: "",
+		password: "",
+		server: 'localhost',
+		database: 'qlHD',
+		port: 1433,
+		options: {
+			trustServerCertificate: true // change to true for local dev / self-signed certs
+		}
+	}
+
+	res.sendFile(__dirname+"/index.html")
+})
+
+
