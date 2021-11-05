@@ -1,0 +1,30 @@
+{
+  "name": "csdlnc_dath1",
+  "version": "1.0.0",
+  "description": "do an thuc hanh 1 mon co so du lieu nang cao",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mssql": "^7.2.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kurokid0206/CSDLNC_DATH1.git"
+  },
+  "keywords": [
+    "hcmus",
+    "csdl-nang-cao",
+    "do-an-thuc-hanh"
+  ],
+  "author": "Pham-Tan-Ti Tran-Minh-Son",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kurokid0206/CSDLNC_DATH1/issues"
+  },
+  "homepage": "https://github.com/Kurokid0206/CSDLNC_DATH1#readme"
+}
