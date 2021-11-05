@@ -145,7 +145,32 @@
         </form>
     </div>
 
+<!-- Bang hien thi danh sach hoa don -->
+    <div class="tbl-container" id="bills-container">
+        <div class="navipage">
+            <div class="form-container">
 
+                <form class="form form-navipage" id="form-navipage">
+                    <div class="form__element">
+                        <div class="btn btn--submit" id="btn_prev_page" onclick="goto_prev_bill_page()">←</div>
+                    </div>
+                    <div class="form__element">
+                        <input type="number" name="page-num" id="page-num" value=1 required>
+                    </div>
+                    <div class="form__element">
+                        <div class="btn btn--submit btn--navipage" onclick="goto_bill_page()">Go</div>
+                    </div>
+                    <div class="form__element">
+                        <div class="btn btn--submit" id="btn_next_page" onclick="goto_next_bill_page()">→</div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+        <div class="tbl-container" id="tbl-bills">
+            
+        </div>
+    </div>
   
   
 
