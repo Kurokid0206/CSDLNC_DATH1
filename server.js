@@ -131,7 +131,101 @@ app.post("/insert-bill-detail", function (req, res) {
 	.catch(	function(data){res.send(data);})
 });
 
-//add codes here
+//Show the bill table and turn off all others
+function show_bill() {
+    var div = document.querySelector("#form-insert-bill")
+    div.style.display = "none";
+    div = document.querySelector("#form-insert-details")
+    div.style.display = "none";
+    div = document.querySelector("#bills-container")
+    div.style.display = "block";
+    div = document.querySelector("#select-sales-type")
+    div.style.display = "none";
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.onload = function() {
+        max_page=parseInt(JSON.parse(this.responseText).recordset[0].slhd)/100;
+        goto_bill_page();
+    }
+    xhttp.open("Get", "bills-rows");
+    xhttp.send();
+}
+var max_page;
+//check number of nav_page
+function check_num_page(max_page){
+
+    var page_num = document.getElementById("page-num").value;
+    if(page_num<=1){
+        document.getElementById("btn_prev_page").classList.add("btn--disable")
+    }
+    else{
+        document.getElementById("btn_prev_page").classList.remove("btn--disable")
+    }
+    if(page_num>=max_page){
+        document.getElementById("btn_next_page").classList.add("btn--disable")
+    }
+    else{
+        document.getElementById("btn_next_page").classList.remove("btn--disable")
+    }
+
+    if(page_num>max_page || page_num<1 ){
+        document.getElementById("page-num").classList.add("invalid")
+        return false
+    }
+    document.getElementById("page-num").classList.remove("invalid")
+    return true
+}
+//show bill page in input of nav_page
+function goto_bill_page() {
+    if(!check_num_page(max_page)){
+        document.getElementById("page-num").classList.add("invalid")
+        return;
+    }
+    var xhttp = new XMLHttpRequest();
+    var page=document.getElementById("page-num").value
+
+    xhttp.onload = function() {
+        var tbl=htmlTable(JSON.parse(this.responseText).recordset);
+        document.getElementById("tbl-bills").innerHTML=tbl;
+    }
+
+    xhttp.open("POST", "bills-dat");
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send('bg='+(page-1)*100+'&end='+page*100);
+
+};
+//show previous bill page
+function goto_prev_bill_page(){
+    var page=document.getElementById("page-num").value;
+    page -=1;
+    document.getElementById("page-num").value=page;
+    if(!check_num_page(max_page)){
+        document.getElementById("page-num").classList.add("invalid")
+        return;
+    }
+    goto_bill_page();
+}
+//show next bill page
+function goto_next_bill_page(){
+    var page=parseInt(document.getElementById("page-num").value);
+    page +=1;
+    document.getElementById("page-num").value=page;
+    if(!check_num_page(max_page)){
+        return;
+    }
+    goto_bill_page();
+}
+//show previous bill page
+function goto_prev_sales_page(){
+    var page=document.getElementById("sales-page-num").value;
+    page -=1;
+    document.getElementById("sales-page-num").value=page;
+    if(!check_num_sales_page(max_page)){
+        document.getElementById("sales-page-num").classList.add("invalid")
+        return;
+    }
+    goto_sales_page();
+}
 
 
 //send number of rows in sales data to client
