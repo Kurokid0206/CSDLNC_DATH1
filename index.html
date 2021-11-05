@@ -172,7 +172,39 @@
         </div>
     </div>
   
-  
+  <!-- Bang thong ke doanh thu theo thang cua tung san pham -->
+    <div class="tbl-container" id="select-sales-type">
+        
+        <form class=" form">
+            <div class="form__element">
+                <h2 class="form__element_tag">Chọn tháng muốn thống kê:</h2>
+                <input type="month" name="month" required>
+            </div>
+            <div class="form__element">
+                
+            </div>
+            <div class="btn btn--submit" onclick="select_month()">Chọn</div>
+        </form>
+        <div class="navipage">
+        <form class="form form-navipage" id="sale-form-navipage">
+            <div class="form__element">
+                <div class="btn btn--submit" id="sales-btn_prev_page" onclick="goto_prev_sales_page()">←</div>
+            </div>
+            <div class="form__element">
+                <input type="number" name="page-num" id="sales-page-num" value=1 required>
+            </div>
+            <div class="form__element">
+                <div class="btn btn--submit btn--navipage" onclick="goto_sales_page()">Go</div>
+            </div>
+            <div class="form__element">
+                <div class="btn btn--submit" id="sales-btn_next_page" onclick="goto_next_sales_page()">→</div>
+            </div>
+        </form>
+    </div>
+        
+        <div class="tbl" id="tbl-sales">
+        </div>
+    </div>
 
     
 </body>
