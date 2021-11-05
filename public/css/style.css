@@ -150,3 +150,162 @@ li:hover .nav-child-menu {
     outline: none;
     border-bottom: 1px rgb(91, 125, 235) solid;
 }
+
+.btn {
+    user-select: none;
+    border: none;
+    margin: 0 auto;
+    text-align: center;
+    padding: 10px;
+    min-width: 100px;
+    border-radius: 20px;
+}
+
+.btn:hover {
+    opacity: 0.75;
+    cursor: pointer;
+}
+
+.btn--submit {
+    background-color: #413EF7;
+    color: white;
+    margin-left: auto;
+    font-size: 1.6rem;
+}
+
+.tbl-container {
+    display: block;
+    width: 75%;
+    position: relative;
+    left: 11.5%;
+    margin: 0 auto;
+    margin-top: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 0;
+    background-color: #D1D6E4;
+    border-radius: 10px;
+}
+
+#form-insert-bill {
+    display: none;
+}
+
+#form-insert-details {
+    display: none;
+}
+
+#bills-container {
+    display: none;
+    text-align: left;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 0 auto;
+}
+
+#tbl-bills{
+    margin-top:0;
+    left:0;
+}
+#select-sales-type {
+    display: none;
+}
+
+.tbl {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0 auto;
+}
+.tbl tr th,td{
+    width: 100px;
+    margin: 3px 20px;
+    display: inline-block;
+}
+.tbl tr::after{
+    width: 100%;
+    content: "";
+    margin: 0;
+    padding: 0;
+    border-bottom: 1px black solid;
+    display: block;
+}
+.tbl tbody tr:first-child{
+    background-color: #e4e4e4;
+}
+.tbl tr:hover{
+    background-color: #e4e4e4;
+}
+.invalid{
+    border-bottom: 2px red solid !important;
+}
+
+.login-form-container>.form{
+    width: 300px;
+    position: fixed;
+    top: 18%;
+    left: 5px;
+    z-index: 2020;
+    border: 1px black solid;
+}
+
+.form-navipage{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.form-navipage .btn{
+    min-width: 30px;
+}
+.navipage .form-container{
+    margin-top: 0;
+    left: 0;
+    font-size: 0.5rem;
+    
+}
+.navipage .form__element{
+    margin: 0 auto;
+}
+.navipage .btn--navipage{
+    background-color: rgb(0, 185, 25);
+
+}
+
+.btn--disable{
+    opacity: 0.5;
+    pointer-events: none;
+    cursor: default;
+}
+
+.form-message{
+    margin-top: 10px;
+}
+.invalid-message{
+    margin-top: 10px;
+    font-size: 1.5rem;
+    color: red;
+}
+
+#login-authorized{
+    display: none;
+}
+
+.nav-menu--disable{
+    pointer-events: none;
+    cursor: default;
+}
+
+#login-authorization>.form{
+    position: unset;
+    width: 300px;
+    margin: 0 auto;
+    border: 1px black solid;
+}
+
+#sale-form-navipage{
+    margin-top: 10px;
+    display: none;
+    margin-bottom: 10px;
+}
