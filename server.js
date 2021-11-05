@@ -78,4 +78,58 @@ app.get("/logout",function(req,res){
 	res.sendFile(__dirname+"/index.html")
 })
 
+//insert new bill to database
+app.post("/insert-bill", function (req, res) {
+	var maHD = req.body.maHD
+    var maKH = req.body.maKH
+    var NgayLap =req.body.NgayLap
+	qry=`INSERT INTO HoaDon (MaHD,MaKH,NgayLap) VALUES ('${maHD}','${maKH}','${NgayLap}')`
+
+  var promise_getdata=new Promise(function(resolve,reject){
+    try{resolve(getdata(qry))}
+    catch{reject('error')}
+  })
+	promise_getdata
+	.then(function(data){
+		try{
+			var rows=JSON.parse(data).rowsAffected[0];
+			res.send('Thêm thành công')
+		}
+		catch{
+			res.send('Thêm thất bại! Thông tin lỗi: '+data)
+		}
+	})
+	.catch(	function(data){res.send(data);})
+});
+//insert new bill-detail to database
+app.post("/insert-bill-detail", function (req, res) {
+	var maHD = req.body.maHD
+    var maSP = req.body.maSP
+    var soluong =req.body.soluong
+	var giaban = req.body.giaban
+	var giagiam =req.body.giagiam
+
+	// console.log(req.body)
+
+	qry=`INSERT INTO CT_HoaDon (MaHD,MaSP,SoLuong,GiaBan,GiaGiam) 
+	VALUES ('${maHD}','${maSP}',${soluong},${giaban},${giagiam})`
+
+  var promise_getdata=new Promise(function(resolve,reject){
+    try{resolve(getdata(qry))}
+    catch{reject('error')}
+  })
+	promise_getdata
+	.then(function(data){
+		try{
+			var rows=JSON.parse(data).rowsAffected[0];
+			res.send('Thêm thành công')
+		}
+		catch{
+			res.send('Thêm thất bại! Thông tin lỗi: '+data)
+		}
+	})
+	.catch(	function(data){res.send(data);})
+});
+
+
 
