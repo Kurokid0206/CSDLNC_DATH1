@@ -34,4 +34,33 @@ function show_sales() {
 
 }
 
+//login to mssql
+function login(){
+    var username = document.getElementById("username").value
+    var password = document.getElementById("password").value
 
+    var xhttp = new XMLHttpRequest();
+    xhttp.onload = function() {
+        var status=this.responseText;
+        if(status!='0'){
+            status=JSON.parse(status).originalError.message
+            document.getElementById("form-login-message").innerHTML=status
+        }else{
+            var div = document.querySelector("#login-authorization")
+            div.style.display = "none";
+            div=document.querySelector("#login-authorized")
+            div.style.display="block"
+            document.querySelector("#login-authorized h1").innerHTML='Xin chào '+username
+        }
+        //if logged in then enable interaction for nav-menu
+        var div=document.querySelector("#login-authorized")
+        if(div.style.display != "none"){
+            div = document.querySelector(".nav-menu")
+            div.classList.remove("nav-menu--disable")
+        }
+    }
+
+    xhttp.open("POST", "login");
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send('username='+username+'&password='+password);
+}
