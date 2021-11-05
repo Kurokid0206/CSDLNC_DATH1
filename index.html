@@ -1,1 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <link rel="icon" type="image/x-icon" href="./images/icon.png" />
+    <link rel="stylesheet" type="text/css" href="./css/style.css" />
+    <title>Quản lí hóa đơn</title>
+
+</head>
+
+
+<body>
+    <!-- Menu chuc nang chinh -->
+    <div class="nav-container">
+        <nav class="top-nav">
+            <div class="nav-logo">
+                <a href="/">
+                    <img src="./images/logo-khtn.png" width="60">
+                </a>
+                
+            </div>
+            <menu class="nav-menu nav-menu--disable">
+                <li class="menu_item" id="insert-bill">
+                    <div onclick="show_bill_form()">Thêm hóa đơn</div>
+                    <menu class="nav-child-menu">
+                        <li class="menu_item" id="insert-details">
+                            <div onclick="show_details_form()">Thêm chi tiết</div>
+                        </li>
+                    </menu>
+                </li>
+                <li class="menu_item" id="show-bill" onclick="show_bill()">
+                    <div>Xem danh sách</div>
+                </li>
+                <li class="menu_item" id="show-sales" onclick="show_sales()">
+                    <div>Thống kê doanh thu</div>
+                </li>
+            </menu>
+            <menu class="nav-contact">
+                <a href="https://fb.com/ti.pham.165">
+                    <i class="fab fa-facebook-square"></i>
+                </a>
+                <a href="">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </menu>
+        </nav>
+    </div>
+  
+
+  
+  
+
+    
+</body>
+
+<script type="text/javascript" src="./javascript/client.js"></script>
+</html>
