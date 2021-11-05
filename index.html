@@ -89,7 +89,62 @@
         </form>
     </div>
     
-    
+        <!-- Form Dien Thong Tin Them Hoa Don Moi -->
+    <div class="form-container" id="form-insert-bill">
+        <form class=" form">
+            <div class="form__element">
+                <h2 class="form__element_tag">Mã hóa đơn:</h2>
+                <input type="text" name="maHD" placeholder="VD: HD012345" required>
+            </div>
+            <div class="form__element">
+                <h2 class="form__element_tag">Mã khách hàng:</h2>
+                <input type="text" name="maKH" placeholder="VD: KH012345" required>
+            </div>
+            <div class="form__element">
+                <h2 class="form__element_tag">Ngày lập:</h2>
+                <input type="date" name="NgayLap" required>
+            </div>
+            <div class="form__element">
+                <div class="btn btn--submit" onclick="insert_bill()">Thêm</div>
+            </div>
+            <div class="form-message" id="form-insert-bill-message">
+
+            </div>
+        </form>
+        
+    </div>
+    <!-- Form Dien Thong Tin Them Chi Tiet Hoa Don Moi -->
+    <div class="form-container" id="form-insert-details">
+        <form class=" form">
+            <div class="form__element">
+                <h2 class="form__element_tag">Mã hóa đơn:</h2>
+                <input type="text" name="maHD" placeholder="VD: HD012345" required>
+            </div>
+            <div class="form__element">
+                <h2 class="form__element_tag">Mã sản phẩm:</h2>
+                <input type="text" name="maSP" placeholder="VD: SP012345" required>
+            </div>
+            <div class="form__element">
+                <h2 class="form__element_tag">Số lượng:</h2>
+                <input type="number" name="soluong" placeholder="VD: 1, 20,..." required>
+            </div>
+            <div class="form__element">
+                <h2 class="form__element_tag">Giá bán (vnđ):</h2>
+                <input type="number" name="giaban" placeholder="VD: 50,000" required>
+            </div>
+            <div class="form__element">
+                <h2 class="form__element_tag">Giá giảm (vnđ):</h2>
+                <input type="number" name="giagiam" value=0>
+            </div>
+            <div class="form__element">
+                <div class="btn btn--submit" onclick="insert_bill_detail()">Thêm</div>
+            </div>
+            <div class="form-message" id="form-insert-bill-detail-message">
+
+            </div>
+        </form>
+    </div>
+
 
   
   
