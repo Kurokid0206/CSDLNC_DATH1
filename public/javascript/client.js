@@ -64,3 +64,36 @@ function login(){
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhttp.send('username='+username+'&password='+password);
 }
+
+//insert new bill
+function insert_bill(){
+    var maHD = document.getElementsByName("maHD")[0].value;
+    var maKH = document.getElementsByName("maKH")[0].value;
+    var NgayLap = document.getElementsByName("NgayLap")[0].value;
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.onload = function() {
+        document.getElementById("form-insert-bill-message").innerHTML=this.responseText
+    }
+
+    xhttp.open("POST", "insert-bill");
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send('maHD='+maHD+'&maKH='+maKH+'&NgayLap='+NgayLap);
+}
+//insert new bill detail
+function insert_bill_detail(){
+    var maHD = document.getElementsByName("maHD")[1].value;
+    var maSP = document.getElementsByName("maSP")[0].value;
+    var soluong = document.getElementsByName("soluong")[0].value;
+    var giaban=document.getElementsByName("giaban")[0].value;
+    var giagiam=document.getElementsByName("giagiam")[0].value;
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.onload = function() {
+        document.getElementById("form-insert-bill-detail-message").innerHTML=this.responseText
+    }
+
+    xhttp.open("POST", "insert-bill-detail");
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send('maHD='+maHD+'&maSP='+maSP+'&soluong='+soluong+'&giaban='+giaban+'&giagiam='+giagiam);
+}
