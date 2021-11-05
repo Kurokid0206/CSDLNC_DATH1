@@ -51,6 +51,45 @@
         </nav>
     </div>
   
+    <!-- Form dien thong tin login -->
+        <div class="login-form-container" id="login-authorization">
+        <form class="form">
+            <div class="form__element">
+                <h1 class="form__element_tag">Đăng nhập cơ sở dữ liệu:</h1>
+            </div>
+
+            <div class="form__element">
+                <h2 class="form__element_tag">Username:</h2>
+                <input type="text" name="username" id="username" placeholder="Username đăng nhập csdl" required>
+            </div>
+            
+            <div class="form__element">
+                <h2 class="form__element_tag">Password:</h2>
+                <input type="password" name="password" id="password"  placeholder="Password đăng nhập csdl" required>
+            </div>
+
+            <div class="form__element">
+                <div class="btn btn--submit" onclick="login()">Đăng nhập</div>
+            </div>
+            <div class="invalid-message" id="form-login-message">
+                Bạn chưa đăng nhập
+            </div>
+        </form>
+    </div>
+    <!-- Form thong tin da login va cho phep dang xuat -->
+    <div class="login-form-container" id="login-authorized">
+        <form class="form" method="get" action="/logout">
+            <div class="form__element">
+                <h1 class="form__element_tag">Đăng nhập cơ sở dữ liệu:</h1>
+            </div>
+
+            <div class="form__element">
+                <button class="btn btn--submit">Đăng xuất</button>
+            </div>
+        </form>
+    </div>
+    
+    
 
   
   
