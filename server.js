@@ -131,5 +131,46 @@ app.post("/insert-bill-detail", function (req, res) {
 	.catch(	function(data){res.send(data);})
 });
 
+//add codes here
+
+
+//send number of rows in sales data to client
+app.post("/sales-rows", function (req, res) {
+	qry=`SELECT COUNT(distinct chd.MaSP) as slsp
+	FROM HoaDon hd JOIN CT_HoaDon chd ON hd.MaHD=chd.MaHD JOIN SanPham sp ON sp.MaSP = chd.MaSP
+	WHERE month(hd.NgayLap)=MONTH('${req.body.month}') AND YEAR(hd.NgayLap)=YEAR('${req.body.month}')`
+  
+	var promise_getdata=new Promise(function(resolve,reject){
+	  try{resolve(getdata(qry))}
+	  catch{reject('error')}
+	})
+	  promise_getdata
+	  .then(function(data){ 
+		  // console.log(data);
+		  res.send(data);
+	  })
+	  .catch(function(data){console.log(data)})
+  });
+//get month and send sales-data to client
+app.post("/sales-dat", function (req, res) {
+
+	qry=`SELECT distinct MaSP,TenSP,DoanhThu
+	FROM (	SELECT distinct chd.MaSP,sp.TenSP,Sum(soluong*(chd.GiaBan-sp.Gia-chd.GiaGiam)) as DoanhThu,ROW_NUMBER() OVER(ORDER BY chd.MaSP,sp.TenSP ASC) AS rowid
+			FROM HoaDon hd JOIN CT_HoaDon chd ON hd.MaHD=chd.MaHD JOIN SanPham sp ON sp.MaSP = chd.MaSP
+			 WHERE month(hd.NgayLap)=MONTH('${req.body.month}')  
+			 AND YEAR(hd.NgayLap)=YEAR('${req.body.month}')
+			 GROUP BY chd.MaSP,sp.TenSP) as fs
+	WHere fs.rowid>${req.body.bg} AND fs.rowid<=${req.body.end}`
+
+  var promise_getdata=new Promise(function(resolve,reject){
+    try{resolve(getdata(qry))}
+    catch{reject('error')}
+  })
+	promise_getdata
+	.then(function(data){
+		res.send(data)
+	})
+	.catch(function(data){console.log(data)})
+});
 
 
